@@ -1,5 +1,6 @@
 package com.udacity.jdnd.course3.critter.user.customer;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -31,7 +32,7 @@ public class Customer {
     private String notes;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private Set<Pet> pets;
+    private Set<Pet> pets = new HashSet<>();
 
     public Long getId() {
         return id;

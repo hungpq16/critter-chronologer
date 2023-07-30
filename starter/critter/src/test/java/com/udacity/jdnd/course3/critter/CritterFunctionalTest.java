@@ -2,6 +2,7 @@ package com.udacity.jdnd.course3.critter;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
+import com.udacity.jdnd.course3.critter.pet.Pet;
 import com.udacity.jdnd.course3.critter.pet.PetController;
 import com.udacity.jdnd.course3.critter.pet.PetDTO;
 import com.udacity.jdnd.course3.critter.pet.PetType;
@@ -21,6 +22,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -256,6 +259,8 @@ public class CritterFunctionalTest {
         CustomerDTO customerDTO = new CustomerDTO();
         customerDTO.setName("TestEmployee");
         customerDTO.setPhoneNumber("123-456-789");
+        List<Long> pets = new ArrayList<>();
+        customerDTO.setPetIds(pets);
         return customerDTO;
     }
 
@@ -278,6 +283,9 @@ public class CritterFunctionalTest {
         scheduleDTO.setPetIds(petIds);
         scheduleDTO.setEmployeeIds(employeeIds);
         scheduleDTO.setDate(date);
+        if (activities == null) {
+            activities = new HashSet<>();
+        }
         scheduleDTO.setActivities(activities);
         return scheduleDTO;
     }

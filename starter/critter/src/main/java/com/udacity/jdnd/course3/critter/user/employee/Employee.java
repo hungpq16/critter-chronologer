@@ -1,6 +1,7 @@
 package com.udacity.jdnd.course3.critter.user.employee;
 
 import java.time.DayOfWeek;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.ElementCollection;
@@ -27,11 +28,11 @@ public class Employee {
 
     @ElementCollection
     @Enumerated(EnumType.STRING)
-    private Set<EmployeeSkill> skills;
+    private Set<EmployeeSkill> skills = new HashSet<>();
 
     @ElementCollection
     @Enumerated(EnumType.STRING)
-    private Set<DayOfWeek> daysAvailable;
+    private Set<DayOfWeek> daysAvailable = new HashSet<>();
 
     public Long getId() {
         return id;

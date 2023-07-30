@@ -1,6 +1,8 @@
 package com.udacity.jdnd.course3.critter.schedule;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -31,18 +33,18 @@ public class Schedule {
 
     @ManyToMany
     // @JoinColumn(name = "employeeId")
-    private List<Employee> employees;
+    private List<Employee> employees = new ArrayList<>();
 
     @ManyToMany
     // @JoinColumn(name = "petId")
-    private List<Pet> pets;
+    private List<Pet> pets = new ArrayList<>();;
 
     // @Temporal(TemporalType.DATE)
     private LocalDate date;
 
     @ElementCollection
     @Enumerated(EnumType.STRING)
-    private Set<EmployeeSkill> skills;
+    private Set<EmployeeSkill> activities = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -76,12 +78,12 @@ public class Schedule {
         this.pets = pets;
     }
 
-    public Set<EmployeeSkill> getSkills() {
-        return skills;
+    public Set<EmployeeSkill> getActivities() {
+        return activities;
     }
 
-    public void setSkills(Set<EmployeeSkill> skills) {
-        this.skills = skills;
+    public void setActivities(Set<EmployeeSkill> activities) {
+        this.activities = activities;
     }
 
 }
