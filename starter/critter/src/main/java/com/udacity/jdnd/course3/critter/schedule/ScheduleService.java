@@ -2,6 +2,8 @@ package com.udacity.jdnd.course3.critter.schedule;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,7 @@ public class ScheduleService implements IBaseAction<Schedule> {
     }
 
     @Override
+    @Transactional
     public Schedule save(Schedule schedule) {
         return scheduleRepository.save(schedule);
     }
