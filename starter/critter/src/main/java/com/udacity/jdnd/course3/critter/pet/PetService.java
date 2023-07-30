@@ -13,6 +13,7 @@ import com.udacity.jdnd.course3.critter.user.customer.Customer;
 import com.udacity.jdnd.course3.critter.utils.IBaseAction;
 
 @Service
+@Transactional
 public class PetService implements IBaseAction<Pet> {
 
     @Autowired
@@ -30,7 +31,7 @@ public class PetService implements IBaseAction<Pet> {
     }
 
     @Override
-    @Transactional
+    //@Transactional
     public Pet save(Pet pet) {
         Pet entity = petRepository.save(pet);
         Customer customer = entity.getCustomer();

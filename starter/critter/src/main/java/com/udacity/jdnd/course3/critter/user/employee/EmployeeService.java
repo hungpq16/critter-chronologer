@@ -13,6 +13,7 @@ import com.udacity.jdnd.course3.critter.exception.EmployeeNotFoundException;
 import com.udacity.jdnd.course3.critter.utils.IBaseAction;
 
 @Service
+@Transactional
 public class EmployeeService implements IBaseAction<Employee> {
 
     @Autowired
@@ -30,12 +31,12 @@ public class EmployeeService implements IBaseAction<Employee> {
     }
 
     @Override
-    @Transactional
+    //@Transactional
     public Employee save(Employee employee) {
         return employeeRepository.save(employee);
     }
 
-    @Transactional
+    //@Transactional
     public void setDaysAvailable(Set<DayOfWeek> daysAvailable, Long id) {
         Employee employee = this.findById(id);
         employee.setDaysAvailable(daysAvailable);

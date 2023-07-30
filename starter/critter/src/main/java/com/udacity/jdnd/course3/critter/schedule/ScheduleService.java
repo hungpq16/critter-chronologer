@@ -11,6 +11,7 @@ import com.udacity.jdnd.course3.critter.exception.ScheduleNotFoundException;
 import com.udacity.jdnd.course3.critter.utils.IBaseAction;
 
 @Service
+@Transactional
 public class ScheduleService implements IBaseAction<Schedule> {
 
     @Autowired
@@ -28,7 +29,7 @@ public class ScheduleService implements IBaseAction<Schedule> {
     }
 
     @Override
-    @Transactional
+    //@Transactional
     public Schedule save(Schedule schedule) {
         return scheduleRepository.save(schedule);
     }
